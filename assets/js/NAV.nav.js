@@ -1,4 +1,4 @@
-/*global $: false, console: false, VMW: true */
+/*global $: false, console: false, NAV: true */
 /*jslint browser: true, sloppy: true, forin: true, plusplus: true, maxerr: 50, indent: 4 */
 
 /*
@@ -8,15 +8,12 @@
     AUTHORS: Nick Katarow, Gavin Suntop
 
     DEPENDENCIES:
-    - NAV.main.js
     - jQuery 1.7.2
+    - NAV.main.js
 
-    TODO:
-    -
-    
 */
 
-VMW.nav = {
+NAV.nav = {
     init: function () {
         // fn init
         var self = this,
@@ -39,7 +36,7 @@ VMW.nav = {
         self.triggersInserted   = false;
 
         // SETUP
-        if (VMW.getMediaWidth() < 700) {
+        if (NAV.getMediaWidth() < 700) {
             self.mobileOn();
         } else {
             self.mobileOff();

@@ -1,4 +1,4 @@
-/*global $: false, console: false, VMW: true */
+/*global $: false, console: false, NAV: true */
 /*jslint browser: true, sloppy: true, forin: true, plusplus: true, maxerr: 50, indent: 4 */
 
 /*
@@ -10,9 +10,6 @@
     DEPENDENCIES:
     - jQuery 1.7.2
 
-    TODO:
-    -
-
 */
 
 window.NAV = {
@@ -23,6 +20,13 @@ window.NAV = {
 
         // Init Components
         self.nav.init();
+
+        // EVENT DELEGATION
+        $(window).bind('resize', function(event) {
+            self.events.windowResize({width: self.getMediaWidth()});
+        });
+
+        $(window).triggerHandler('resize');
     },
     events: {
         windowResize: function (event) {

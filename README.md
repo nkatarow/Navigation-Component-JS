@@ -15,4 +15,3 @@ Gavin Suntop (<http://github.com/gvn>)
 - HTML Example
 - Architecture Credits
 - Basic Styling Examples
-- Inline JS to display current scren width

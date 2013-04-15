@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<head>
+	<title>Navigation Component JS</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<link rel="canonical" href="/">
+</head>
+<body>
+	<header>
+		<h1>Navigation Component JS</h1>
+		<nav id="primary" class="menu" role="navigation">
+			<ul class="level-1">
+				<li>
+					<a href="#">Primary Item 1</a>
+					<ul class="level-2">
+						<li><a href="#">Sub Item 1</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">Primary Item 2</a>
+					<ul class="level-2">
+						<li><a href="#">Sub Item 1</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">Primary Item 3</a>
+					<ul class="level-2">
+						<li><a href="#">Sub Item 1</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav><!-- /#primary -->
+
+		<nav id="country" class="menu">
+			<ul>
+				<li><a href="#">Quick Link 1</a></li>
+				<li><a href="#">Quick Link 2</a></li>
+				<li><a href="#">Quick Link 3</a></li>
+			</ul>
+		</nav><!-- /#country -->
+
+		<nav id="search" class="menu">
+			<form>
+				<input class="" type="search" placeholder="Search">
+				<input class="" type="submit" value="Submit"/>			
+			</form>
+		</nav><!-- /#country -->
+	</header>
+
+	<!-- This is just to display current screen width, remove from your production build -->
+	<section class="screen-width">
+		<h2>Screen Width</h2>
+		<p class="reading"></p>
+	</section>
+	<!-- Remove section abvoe -->
+
+	<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="/assets/js/lib/jquery-1.7.2.min.js"><\/script>')</script>
+
+	<script src="assets/js/NAV.main.js"></script>	
+	<script src="assets/js/NAV.nav.js"></script>	
+
+	<script>
+		$(document).ready(function() {
+			// inits the NAV namespace located in NAV.main.js
+			NAV.init();
+
+			// This is just to display current screen width, remove from your production build
+			$('.screen-width .reading').append(NAV.getMediaWidth());
+	        $(window).bind('resize', function(event) {
+	        	$('.screen-width .reading').empty();
+				$('.screen-width .reading').append(NAV.getMediaWidth());
+	        });	
+		});
+	</script>
+</body>
+</html>
