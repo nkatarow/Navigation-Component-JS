@@ -1,0 +1,28 @@
+.menu {
+	display: none;
+}
+
+.menu.active {
+	display: block;
+}
+
+li.has-subnav ul {
+	display: none;
+}
+
+li.has-subnav ul.active {
+	display: block;
+}
+
+.trigger {
+	display: inline-block;
+}
+	.trigger img {
+		width: 30px;
+	}
+
+@media only all and (min-width: 700px) {
+	.menu {
+		display: block;
+	}
+}

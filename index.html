@@ -10,22 +10,28 @@
 		<h1>Navigation Component JS</h1>
 		<nav id="primary" class="menu" role="navigation">
 			<ul class="level-1">
-				<li>
+				<li class="has-subnav">
 					<a href="#">Primary Item 1</a>
 					<ul class="level-2">
 						<li><a href="#">Sub Item 1</a></li>
 					</ul>
 				</li>
-				<li>
+				<li class="has-subnav">
 					<a href="#">Primary Item 2</a>
 					<ul class="level-2">
 						<li><a href="#">Sub Item 1</a></li>
+						<li><a href="#">Sub Item 2</a></li>
 					</ul>
 				</li>
-				<li>
+				<li class="has-subnav">
 					<a href="#">Primary Item 3</a>
 					<ul class="level-2">
-						<li><a href="#">Sub Item 1</a></li>
+						<li class="has-subnav">
+							<a href="#">Sub Item 1 (Click for extra level)</a>
+							<ul class="level-3">
+								<li><a href="#">Sub Sub Item</li>
+							</ul>
+						</li>
 					</ul>
 				</li>
 			</ul>
@@ -33,9 +39,9 @@
 
 		<nav id="country" class="menu">
 			<ul>
-				<li><a href="#">Quick Link 1</a></li>
-				<li><a href="#">Quick Link 2</a></li>
-				<li><a href="#">Quick Link 3</a></li>
+				<li><a href="#">United States</a></li>
+				<li><a href="#">Canada</a></li>
+				<li><a href="#">Australia</a></li>
 			</ul>
 		</nav><!-- /#country -->
 

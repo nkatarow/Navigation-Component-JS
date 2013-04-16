@@ -11,6 +11,10 @@
     - jQuery 1.7.2
     - NAV.main.js
 
+    Optional To Do List:
+    - If three levels deep, remove inner active classes when first level is closed 
+    - Only allow a single level 1, 2 or 3 items be active at any given time
+    
 */
 
 NAV.nav = {
@@ -20,15 +24,15 @@ NAV.nav = {
             key;
 
         // ELEMENTS
-        self.elPrimaryTrigger       = $('<a href="#menu-primary" class="menu-link menu-link-primary">Menu</a>');
-        self.elSearchTrigger        = $('<a href="#menu-search" class="menu-link menu-link-search">Menu</a>');
-        self.elQuickLinksTrigger    = $('<a href="#menu-quick" class="menu-link menu-link-eyebrow menu-link-quick">Quick Links</a>');
-        self.elShareTrigger         = $('<a href="#menu-share" class="menu-link menu-link-eyebrow menu-link-share">Share</a>');
+        self.elPrimaryTrigger       = $('<a href="#primary" class="trigger primary-trigger" title="Menu"><img src="assets/svg/menu.svg"></a>');
+        self.elCountryTrigger       = $('<a href="#country" class="trigger country-trigger" title="Country"><img src="assets/svg/globe.svg"></a>');
+        self.elSearchTrigger        = $('<a href="#search" class="trigger search-trigger" title="Search"><img src="assets/svg/search.svg"></a>');
+
+        self.elPrimaryMenu          = $('#primary');
+        self.elCountryMenu          = $('#country');
+        self.elSearchMenu           = $('#search');
+
         self.elSubMenuItem          = $('.has-subnav > a');
-        self.elPrimaryMenu          = $('#menu-primary');
-        self.elSearchMenu           = $('#menu-search');
-        self.elQuickLinksMenu       = $('#menu-quick');
-        self.elShareMenu            = $('#menu-share');
 
         // PROPERTIES
         self.isMobile           = false;
@@ -52,13 +56,9 @@ NAV.nav = {
                 $menu: self.elSearchMenu,
                 $trigger: self.elSearchTrigger
             },
-            quick: {
-                $menu: self.elQuickLinksMenu,
-                $trigger: self.elQuickLinksTrigger
-            },
-            share: {
-                $menu: self.elShareMenu,
-                $trigger: self.elShareTrigger
+            country: {
+                $menu: self.elCountryMenu,
+                $trigger: self.elCountryTrigger
             }
         };
 
@@ -86,22 +86,20 @@ NAV.nav = {
         if (!self.triggersInserted) {
             self.elPrimaryMenu.before(self.elPrimaryTrigger);
             self.elSearchMenu.before(self.elSearchTrigger);
-            self.elQuickLinksMenu.before(self.elQuickLinksTrigger);
-            self.elShareMenu.before(self.elShareTrigger);
+            self.elCountryMenu.before(self.elCountryTrigger);
 
             self.triggersInserted = true;
         } else {
             self.elPrimaryTrigger.show();
             self.elSearchTrigger.show();
-            self.elQuickLinksTrigger.show();
-            self.elShareTrigger.show();
+            self.elCountryTrigger.show();
         }
 
         self.elSubMenuItem.click(function (event) {
             event.preventDefault();
-            $(this).toggleClass('is-active');
-            $(this).next('ul').toggleClass('is-active');
-            $(this).next('ul').children().children('.has-subnav').children('ul').toggleClass('is-active');
+            $(this).toggleClass('active');
+            $(this).next('ul').toggleClass('active');
+            $(this).next('ul').children().children('.has-subnav').children('ul').toggleClass('active');
         });
 
         self.isMobile = true;
@@ -113,8 +111,7 @@ NAV.nav = {
         if (self.triggersInserted) {
             self.elPrimaryTrigger.hide();
             self.elSearchTrigger.hide();
-            self.elQuickLinksTrigger.hide();
-            self.elShareTrigger.hide();
+            self.elCountryTrigger.hide();
         }
 
         self.isMobile = false;
@@ -124,8 +121,8 @@ NAV.nav = {
         // fn hideNav
         var self = this;
 
-        self.menus[self.visibleMenu].$menu.removeClass('is-active');
-        self.menus[self.visibleMenu].$trigger.removeClass('is-active');
+        self.menus[self.visibleMenu].$menu.removeClass('active');
+        self.menus[self.visibleMenu].$trigger.removeClass('active');
         self.visibleMenu = null;
     },
     showNav: function (menu) {
@@ -136,8 +133,8 @@ NAV.nav = {
             self.hideNav(self.visibleMenu);
         }
 
-        self.menus[menu].$menu.addClass('is-active');
-        self.menus[menu].$trigger.addClass('is-active');
+        self.menus[menu].$menu.addClass('active');
+        self.menus[menu].$trigger.addClass('active');
         self.visibleMenu = menu;
     }
 };
