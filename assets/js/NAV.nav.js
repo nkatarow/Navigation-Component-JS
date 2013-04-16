@@ -14,7 +14,7 @@
     Optional To Do List:
     - If three levels deep, remove inner active classes when first level is closed 
     - Only allow a single level 1, 2 or 3 items be active at any given time
-    
+
 */
 
 NAV.nav = {
@@ -32,7 +32,7 @@ NAV.nav = {
         self.elCountryMenu          = $('#country');
         self.elSearchMenu           = $('#search');
 
-        self.elSubMenuItem          = $('.has-subnav > a');
+        self.elSubMenuItem          = $('.has-subnav a');
 
         // PROPERTIES
         self.isMobile           = false;
@@ -99,7 +99,6 @@ NAV.nav = {
             event.preventDefault();
             $(this).toggleClass('active');
             $(this).next('ul').toggleClass('active');
-            $(this).next('ul').children().children('.has-subnav').children('ul').toggleClass('active');
         });
 
         self.isMobile = true;

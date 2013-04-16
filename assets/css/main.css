@@ -1,18 +1,16 @@
 .menu {
 	display: none;
 }
-
-.menu.active {
-	display: block;
-}
+	.menu.active {
+		display: block;
+	}
 
 li.has-subnav ul {
 	display: none;
 }
-
-li.has-subnav ul.active {
-	display: block;
-}
+	li.has-subnav ul.active {
+		display: block;
+	}
 
 .trigger {
 	display: inline-block;
