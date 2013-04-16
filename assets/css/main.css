@@ -1,5 +1,22 @@
+* { 
+	box-sizing: border-box;
+	-moz-box-sizing: border-box; 
+	-webkit-box-sizing: border-box; 
+}
+
+ul {
+	margin-left: 20px;
+	padding: 0;
+}
+
 .menu {
+	background-color: white;
+	border: 1px solid black;		
 	display: none;
+	left: 0;
+	padding: 20px;
+	position: absolute;
+	width: 100%;
 }
 	.menu.active {
 		display: block;
